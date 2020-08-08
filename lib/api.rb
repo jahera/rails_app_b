@@ -1,13 +1,13 @@
 class Api
   include HTTParty
-  base_uri "http://localhost:3002"
+  base_uri "http://localhost:3000/"
 
   def get_user token
     self.class.get("/users/profile",:headers => { "Authorization" => token})
   end
 
-  def destroy_user(token, url)
-    self.class.delete(url,:headers => { "Authorization" => token})
+  def destroy_user(prms, url)
+    self.class.delete("/user/sign_out", :body =>prms)
   end
 
   def auth_user(auth, url)

@@ -22,7 +22,8 @@
 
   <body>
     <div><%= notice  %></div>
-    <% if @user.present? %>
+    <%= session[:user_id] %>
+    <% if session[:user_id].present? %>
       <%= link_to "Profile" , user_profile_path %>
       <%= link_to "Logout" , user_destroy_path %>
     <% else %>

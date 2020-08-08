@@ -20,5 +20,5 @@
 
 
 $(document).ready(function() {
-  // $(".simple_form").validate();
+  $(".simple_form").validate();
 });

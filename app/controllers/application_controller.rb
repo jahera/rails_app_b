@@ -2,13 +2,13 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_request!
   
   def authenticate_request!
-    unless session[:auth_token]
+    unless session[:user_id]
     	@user = ''
-    	redirect_to user_login_path
+    	redirect_to root_path
       # render json: { errors: ['Not Authenticated'] }, status: :unauthorized
       # return
     else
-      @user = Api.new.get_user(session[:auth_token])
+      @user = User.find(session[:user_id])
     end
   end
 end
